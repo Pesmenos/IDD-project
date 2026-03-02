@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Outlets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="particles"></div>
+    </div>
+
+    <!-- Fixed Top Bar with Back Button -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <button class="back-button" onclick="window.location.href='index.html'">← Back</button>
+            <span class="page-title">Our Outlets</span>
+            <div style="width: 60px;"></div> <!-- Spacer for balance -->
+        </div>
+    </div>
+
+    <!-- Right Sidebar Image - Click to Expand (same as home page) -->
+    <div class="sidebar-image" onclick="toggleSidebar()">
+        <img src="Images/arrow.png" alt="Menu">
+        <span class="sidebar-tooltip">Click to expand</span>
+    </div>
+
+    <!-- Expanded Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-menu-header">
+            <h3>Navigation</h3>
+            <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+        </div>
+        <div class="sidebar-menu-items">
+            <button class="menu-item" onclick="navigateToOutlets()">
+                <span class="menu-icon">📌</span>
+                <span class="menu-text">Outlets</span>
+            </button>
+            <button class="menu-item" onclick="navigateToShop()">
+                <span class="menu-icon">🛒</span>
+                <span class="menu-text">Shop</span>
+            </button>
+            <button class="menu-item" onclick="showComingSoon()">
+                <span class="menu-icon">ℹ️</span>
+                <span class="menu-text">About</span>
+            </button>
+            <button class="menu-item" onclick="showComingSoon()">
+                <span class="menu-icon">📞</span>
+                <span class="menu-text">Contact</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 3D Model Container - Floating Button -->
+    <div id="model-container"></div>
+
+    <!-- Outlets Header -->
+    <div class="outlets-header">
+        <h1>Our Locations</h1>
+        <p>Click on any outlet to open in Google Maps</p>
+    </div>
+
+    <!-- Outlets Grid - Card Style like Miku Figures -->
+    <div class="outlets-grid">
+        <!-- Outlet 1 - Dover MRT -->
+        <div class="outlet-card" onclick="openMap(1)">
+            <div class="outlet-image">
+                <img src="Images/Dover MRT.jpg" alt="Dover MRT Station">
+            </div>
+            <div class="outlet-info">
+                <h3>Dover Showroom</h3>
+                <p class="outlet-address">Dover showroom</p>
+                <div class="outlet-details">
+                    <span class="detail-badge">📍 Main Outlet</span>
+                    <span class="detail-badge">🚇 East-West Line</span>
+                </div>
+                <button class="map-button" onclick="event.stopPropagation(); openMap(1)">View on Maps →</button>
+            </div>
+        </div>
+
+        <!-- Outlet 2 - Singapore Polytechnic -->
+        <div class="outlet-card" onclick="openMap(2)">
+            <div class="outlet-image">
+                <img src="Images/Singapore Poly building.jpg" alt="Singapore Polytechnic">
+            </div>
+            <div class="outlet-info">
+                <h3>Singapore outlet</h3>
+                <p class="outlet-address">500 Dover Road, Singapore</p>
+                <div class="outlet-details">
+                    <span class="detail-badge">🏫 Sister Locaation</span>
+                    <span class="detail-badge">📚 In a school</span>
+                </div>
+                <button class="map-button" onclick="event.stopPropagation(); openMap(2)">View on Maps →</button>
+            </div>
+        </div>
+
+        <!-- Outlet 3 - MAD School -->
+        <div class="outlet-card" onclick="openMap(3)">
+            <div class="outlet-image">
+                <img src="Images/MAD building.jpg" alt="Media Arts & Design School">
+            </div>
+            <div class="outlet-info">
+                <h3>MAD store</h3>
+                <p class="outlet-address">Singapore Polytechnic, Dover</p>
+                <div class="outlet-details">
+                    <span class="detail-badge">🎨 Design</span>
+                    <span class="detail-badge">📸 Media</span>
+                </div>
+                <button class="map-button" onclick="event.stopPropagation(); openMap(3)">View on Maps →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Your main script file -->
+    <script src="script.js"></script>
+
+    <script>
+        // Generate red particles for the animated background
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            if (!particlesContainer) return;
+            
+            particlesContainer.innerHTML = '';
+            
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                const size = Math.random() * 10 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.opacity = Math.random() * 0.8 + 0.2;
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>

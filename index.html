@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scamper - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-bg"></div>
+        <div class="particles"></div>
+    </div>
+
+    <!-- Fixed Top Bar with Page Title and Logo -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span class="page-title">Home</span>
+            <div class="top-bar-logo">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Logo (Top Right) -->
+    <div class="floating-logo">
+        <img src="Images/logo.png" alt="Scamper Logo">
+    </div>
+
+    <!-- Right Sidebar Image - Click to Expand -->
+    <div class="sidebar-image" onclick="toggleSidebar()">
+        <img src="Images/arrow.png" alt="Menu">
+        <span class="sidebar-tooltip">Click to expand</span>
+    </div>
+
+    <!-- Expanded Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-menu-header">
+            <h3>Navigation</h3>
+            <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+        </div>
+        <div class="sidebar-menu-items">
+            <button class="menu-item" onclick="navigateToOutlets()">
+                <span class="menu-icon">📌</span>
+                <span class="menu-text">Outlets</span>
+            </button>
+            <button class="menu-item" onclick="navigateToShop()">
+                <span class="menu-icon">🛒</span>
+                <span class="menu-text">Shop</span>
+            </button>
+            <button class="menu-item" onclick="showComingSoon()">
+                <span class="menu-icon">ℹ️</span>
+                <span class="menu-text">About</span>
+            </button>
+            <button class="menu-item" onclick="showComingSoon()">
+                <span class="menu-icon">📞</span>
+                <span class="menu-text">Contact</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 3D Model Container - Floating Button -->
+    <div id="model-container"></div>
+
+    <!-- Hero Image Section with Background Image -->
+    <div class="hero-image">
+        <!-- Translucent Logo Background -->
+        <div class="hero-logo-background">
+            
+        </div>
+        
+        <!-- Dark overlay for text readability -->
+        <div class="hero-overlay"></div>
+        
+        <!-- 3D model container (populated by Watchmodel.js) -->
+        <div id="hero-model-container"></div>
+        
+        <div class="hero-text">
+            <h1>Scamper</h1>
+            <p>Making watches for the future</p>
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION 1 - RIGHT side -->
+    <div class="content-section">
+        <div class="content-left">
+            <img src="Images/Suicidal founder.jpg" alt="Section 1 Image">
+        </div>
+        <div class="content-right">
+            <h2>Section 1: Meet the Founder</h2>
+            <p>Founded in 2067, our founder was an extremely sad, tired, overworked and ultimately bratty sonnuva b***h, he was however a man who aspired to make watches for the future.</p>
+            <p class="scroll-hint">⬇️ Keep scrolling ⬇️</p>
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION 2 - LEFT side -->
+    <div class="content-section">
+        <div class="content-left">
+            <h2>Section 2: Our Mission</h2>
+            <p>Inspired by his hope of a better tomorrow, he made watches, that were able to tell time while offering a futuristic appearance to reflect his idea and belief for a better future.</p>
+        </div>
+        <div class="content-right">
+            <img src="Images/Future dream.jpg" alt="Section 2 Image">
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION 3 - RIGHT side -->
+    <div class="content-section">
+        <div class="content-left">
+            <img src="Images/Future watch.png" alt="Section 3 Image">
+        </div>
+        <div class="content-right">
+            <h2>Section 3: Our Products</h2>
+            <p>It was then at approximately 2069 where the founder released his first scamper watch. It has made millions of dollars. It has made so much money to the point where the owner is no longer suicidal</p>
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION 4 - LEFT side -->
+    <div class="content-section">
+        <div class="content-left">
+            <h2>Section 4: Outlets</h2>
+            <p>Thanks to this, we the folks over at Scamper were able to launch multiple outlets countrywide. This way we can serve and deliver our products to customers all over the country.</p>
+        </div>
+        <div class="content-right">
+            <img src="Images/Outlets.jpg" alt="Section 4 Image">
+        </div>
+    </div>
+
+    <!-- CONTENT SECTION 5 - RIGHT side -->
+    <div class="content-section">
+        <div class="content-left">
+            <img src="Images/All_Watches.png" alt="Section 5 Image">
+        </div>
+        <div class="content-right">
+            <h2>Section 5: Our latest product</h2>
+            <p>We at Scamper would be so happy to show you our latest product, the retroclock. A complete 180 on everything we at Scamper have done. This is a limited edition preorder so start your pre order today!.</p>
+        </div>
+    </div>
+
+    <!-- Footer with Social Media Links -->
+    <div class="footer">
+        <p></p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/sp_mad?igsh=a2I3ZWRqNGtxem5t" target="_blank" class="social-btn instagram">
+                <span class="social-icon">📷</span>
+                <span>Instagram</span>
+            </a>
+            <a href="https://x.com/singaporepoly?s=21" target="_blank" class="social-btn twitter">
+                <span class="social-icon">🐦</span>
+                <span>Twitter</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Three.js Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Your main script file -->
+    <script src="script.js"></script>
+
+    <!-- Hero Section 3D Model -->
+    <script src="Watchmodel.js"></script>
+
+    <script>
+        // Generate red particles for the animated background
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            if (!particlesContainer) return;
+            
+            particlesContainer.innerHTML = '';
+            
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                const size = Math.random() * 10 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.opacity = Math.random() * 0.8 + 0.2;
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        window.addEventListener('load', createParticles);
+    </script>
+</body>
+</html>
